@@ -1,0 +1,115 @@
+---
+const NavLink = [
+    {
+        id: "sales",
+        name: "Sales",
+        child: [
+            { title: "Rich Product Search", url: "/admin/sales/rich-product-search" },
+            { title: "Store / Recal Options", url: "/admin/sales/store-recal-options" },
+            { title: "Gift Cards", url: "/admin/sales/gift-cards" },
+            { title: "Receipts", url: "/admin/sales/receipts" },
+            { title: "Loyalty", url: "/admin/sales/loyalty" },
+            { title: "Quantity Sale", url: "/admin/sales/qty-sale" },
+            { title: "More", url: "/admin/sales/more" },
+        ]
+    },
+    {
+        id: "dept-sale",
+        name: "Dept Sale",
+        url: "/admin/dept-sale/",
+    },
+    {
+        id: "voids",
+        name: "Voids",
+        url: "/admin/voids/",
+    },
+    {
+        id: "returns",
+        name: "Returns",
+        url: "/admin/returns/",
+    },
+    {
+        id: "discount-overrides",
+        name: "Discount Overrides",
+        url: "/admin/discount-overrides/",
+    },
+    {
+        id: "management",
+        name: "Management",
+        url: "/admin/management/",
+    },
+];
+---
+
+<li>
+    <a href="/admin/dashboard" aria-label="dashboard" class="relative px-4 py-3 flex items-center space-x-4 rounded-xl text-white bg-gradient-to-r from-sky-600 to-cyan-400">
+        <svg class="-ml-1 h-6 w-6" viewBox="0 0 24 24" fill="none">
+            <path d="M6 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8ZM6 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-1Z" class="fill-current text-cyan-400 dark:fill-slate-600"></path>
+            <path d="M13 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2V8Z" class="fill-current text-cyan-200 group-hover:text-cyan-300"></path>
+            <path d="M13 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-1Z" class="fill-current group-hover:text-sky-300"></path>
+        </svg>
+        <span class="-mr-1 font-medium">Dashboard</span>
+    </a>
+</li>
+
+{ NavLink ?
+    NavLink.map((parent) => (
+        <li class="mt-12 lg:mt-8">
+            { 
+                parent.child ? 
+                    <button
+                        id={parent.id}
+                        type="button"
+                        class="px-4 flex items-center w-full justify-around mb-8 lg:mb-3 font-semibold text-slate-900 dark:text-slate-200"
+                        aria-controls=""
+                        data-collapse-toggle=""
+                    >
+                        <span class="flex-1 text-left whitespace-nowrap">
+                            {parent.name}
+                        </span>
+                        <svg
+                            sidebar-toggle-item
+                            class="w-6 h-6 text-right"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+                    </button>
+                    <ul class="px-4 space-y-4 lg:space-y-0 border-l text-sm border-slate-300 dark:border-slate-800">
+                        { 
+                            parent.child.map(({ title, url }) => (
+                                <li>
+                                    <a
+                                        class={(Astro.url.pathname === url ? 'block border-l pl-4 -ml-px py-1 text-sky-500 border-current font-semibold dark:text-sky-400' : 'block border-l pl-4 -ml-px py-1 border-slate-300 hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300')}
+                                        href={url}
+                                    >
+                                        {title}
+                                    </a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                : 
+                    <a
+                        id={parent.id}
+                        class="px-4 flex text-left w-full mb-8 lg:mb-3 font-semibold text-slate-900 dark:text-slate-200"
+                        href={parent.url}
+                    >
+                        {parent.name}
+                    </a>
+            }
+        </li>
+    ))
+: null }
+
+<!-- 
+    class="block border-l pl-4 -ml-px py-1 text-sky-500 border-current font-semibold dark:text-sky-400"
+
+    class="block border-l pl-4 -ml-px py-1 border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+-->

@@ -1,0 +1,78 @@
+---
+import Header from "~/components/pos/header.astro";
+import Leftbar from "~/components/pos/Leftbar";
+import Rightbar from "~/components/pos/rightbar.astro";
+
+import "~/styles/index.css";
+
+const { site } = Astro;
+const { title, description, image } = Astro.props;
+---
+
+<html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+        <title>{title}</title>
+        <meta name="description" content={description} />
+
+        <meta property="og:title" content="Astro" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={image} />
+        <meta property="og:url" content={site} />
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+
+        <!-- initialize theme -->
+        <script is:inline>
+            const themeSaved = localStorage.getItem("theme");
+
+            if (themeSaved) {
+                document.documentElement.dataset.theme = themeSaved;
+            } else {
+                const prefersDark = window.matchMedia(
+                    "(prefers-color-scheme: dark)"
+                ).matches;
+                document.documentElement.dataset.theme = prefersDark
+                    ? "dark"
+                    : "light";
+            }
+
+            window
+                .matchMedia("(prefers-color-scheme: dark)")
+                .addEventListener("change", (event) => {
+                    if (!localStorage.getItem("theme")) {
+                        document.documentElement.dataset.theme = event.matches
+                            ? "dark"
+                            : "light";
+                    }
+                });
+        </script>
+    </head>
+    <body
+        class="h-full overflow-x-hidden text-base bg-default text-default selection:bg-secondary selection:text-white"
+    >
+        <div class="relative flex flex-col flex-1 overflow-y-hidden overflow-x-hidden">
+            <Header />
+            <div
+                class="flex h-[calc(100vh-65.070px)] overflow-hidden w-full mt-[65.070px]"
+            >
+                <Leftbar client:idle/>
+
+                <main class="w-[calc(100%-28rem)] overflow-y-auto py-4">
+                    <slot />
+                </main>
+                
+                <Rightbar />
+            </div>
+        </div>
+    </body>
+</html>

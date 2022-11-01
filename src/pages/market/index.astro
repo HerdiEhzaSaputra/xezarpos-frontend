@@ -1,0 +1,18 @@
+---
+import MarketLayout from "~/layouts/MarketLayout.astro";
+import Layout from "~/components/market/Layout"
+import Produk from "~/components/market/Produk";
+
+const { site } = Astro;
+const image = new URL("social.jpg", site);
+const description =
+    "Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience.";
+---
+
+<MarketLayout title="Sign In | Xezarindo" description={description} image={image}>
+    
+    <Layout  client:visible/>
+
+    <Produk client:visible/>
+    
+</MarketLayout>

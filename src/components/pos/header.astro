@@ -1,0 +1,108 @@
+---
+import ThemeSwitcher from "./theme-switcher.astro";
+---
+
+<header
+    class="fixed bg-white top-0 z-50 w-full flex items-center justify-between"
+>
+    <div class="w-48 px-2 py-2 border-r">
+        <div class="flex justify-between">
+            <button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorSecondary MuiIconButton-edgeStart MuiIconButton-sizeMedium css-1sdh4ht" tabindex="0" type="button" aria-label="open drawer"><span role="img" aria-label="menu-fold" class="anticon anticon-menu-fold"><svg viewBox="64 64 896 896" focusable="false" data-icon="menu-fold" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"></path></svg></span></button>
+            <div class="flex flex-col text-start justify-start">
+                <h3 class="text-sm">Rubirosa Ristorante</h3>
+                <p class="text-xs">Inventory</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-[calc(100%-28rem)] px-2 py-2">
+        <div class="flex right-0">
+            <div
+                class="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800 mr-12"
+            >
+                <ThemeSwitcher />
+                <a
+                    href="https://github.com/tailwindlabs/tailwindcss"
+                    class="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
+                    ><span class="sr-only">Tailwind CSS on GitHub</span><svg
+                        viewBox="0 0 16 16"
+                        class="w-5 h-5"
+                        fill="currentColor"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                        >
+                        </path>
+                    </svg>
+                </a>
+            </div>
+    
+            <div
+                class="w-64 bg-white dark:bg-slate-900 relative pointer-events-auto"
+            >
+                <button
+                    type="button"
+                    class="hidden w-full lg:flex items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700"
+                    ><svg
+                        width="24"
+                        height="24"
+                        fill="none"
+                        aria-hidden="true"
+                        class="mr-3 flex-none"
+                    >
+                        <path
+                            d="m19 19-3.5-3.5"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <circle
+                            cx="11"
+                            cy="11"
+                            r="6"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></circle>
+                    </svg>Quick search...<span
+                        class="ml-auto pl-3 flex-none text-xs font-semibold"
+                        >Ctrl K</span
+                    >
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-64 px-2 py-2 border-l">
+        <div class="flex justify-between items-center">
+            <svg
+                width="24"
+                height="24"
+                fill="none"
+                aria-hidden="true"
+                class="mr-3 flex-none"
+            >
+                <path
+                    d="m19 19-3.5-3.5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                <circle
+                    cx="11"
+                    cy="11"
+                    r="6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></circle>
+            </svg>
+            <div class="flex flex-col text-right justify-start">
+                <h3 class="text-sm">David Ross</h3>
+                <p class="text-xs">Checked In 12:56 PM</p>
+            </div>
+            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+        </div>
+    </div>
+</header>

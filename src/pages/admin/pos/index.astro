@@ -1,0 +1,23 @@
+---
+import Intro from "~/components/intro.astro";
+import AdminLayout from "~/layouts/AdminLayout.astro";
+
+// const ip = Astro.clientAddress;
+const { site } = Astro;
+const image = new URL("social.jpg", site);
+const description =
+  "Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience.";
+---
+
+<AdminLayout 
+  title="Xezarindo"
+  description={description}
+  image={image}
+>
+  <div class="px-8 py-32 space-y-24">
+    <!-- <div>Your IP address is: <span class="address">{ ip }</span></div> -->
+    <h1>The current URL is: {Astro.url}</h1>
+    <h1>The current URL pathname is: {Astro.url.pathname}</h1>
+    <h1>The current URL origin is: {Astro.url.origin}</h1>
+  </div>
+</AdminLayout>

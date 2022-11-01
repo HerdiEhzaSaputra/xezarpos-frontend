@@ -1,0 +1,25 @@
+---
+import Compatibility from "~/components/compatibility.astro";
+import Features from "~/components/features.astro";
+import Intro from "~/components/intro.astro";
+import Showcase from "~/components/showcase.astro";
+import AppLayout from "~/layouts/AppLayout.astro";
+
+const { site } = Astro;
+const image = new URL("social.jpg", site);
+const description =
+  "Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience.";
+---
+
+<AppLayout 
+  title="Xezarindo"
+  description={description}
+  image={image}
+>
+  <div class="px-8 py-32 space-y-24">
+    <Intro />
+    <Features />
+    <Compatibility />
+    <Showcase />
+  </div>
+</AppLayout>
